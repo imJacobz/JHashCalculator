@@ -8,8 +8,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 @Slf4j
@@ -18,7 +16,7 @@ public class HeaderPanel extends JPanel {
 
         JComboBox<String> hashTypes = new JComboBox<>();
         hashTypes.addItem("文件");
-        hashTypes.addItem("文本");
+//        hashTypes.addItem("文本");
         hashTypes.setPreferredSize(new Dimension(SizeConst.LEFT_CONTROL_PREFERRED_WIDTH - 5, SizeConst.CONTROL_PREFERRED_HEIGHT));
         JPlaceHolderTextField textFile = new JPlaceHolderTextField();
         textFile.getDocument().addDocumentListener(new DocumentListener() {
