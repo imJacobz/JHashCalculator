@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.Set;
 
 @Slf4j
@@ -19,11 +20,14 @@ public class ButtonPanel extends JPanel {
     private final MainContentPanel contentPanel;
     private final HashService hashService = new HashService();
     private final JButton btnCalc;
+    private final JButton btnClose;
     private final JProgressBar progressBar;
+    private ResourceBundle bundle;
 
-    public ButtonPanel(MainFrame parent, MainContentPanel contentPanel) {
+    public ButtonPanel(MainFrame parent, MainContentPanel contentPanel,ResourceBundle bundle) {
         this.parent = parent;
         this.contentPanel = contentPanel;
+        this.bundle = bundle;
         this.setLayout(new FlowLayout(FlowLayout.RIGHT));
         progressBar = new JProgressBar();
         progressBar.setPreferredSize(new Dimension(580, 20));
@@ -32,7 +36,8 @@ public class ButtonPanel extends JPanel {
         btnCalc.setPreferredSize(SizeConst.BUTTON_SIZE);
         btnCalc.addActionListener(e -> {
             if (StringUtils.isEmpty(parent.getFilePath())) {
-                JOptionPane.showMessageDialog(parent, "请选择文件或输入文件路径", "错误", JOptionPane.ERROR_MESSAGE);
+                UIManager.put("OptionPane.okButtonText", ButtonPanel.this.bundle.getString("OK"));
+                JOptionPane.showMessageDialog(parent, ButtonPanel.this.bundle.getString("CHOOSE_FILE_PATH"), ButtonPanel.this.bundle.getString("ERROR"), JOptionPane.ERROR_MESSAGE);
                 return;
             }
             log.info("hashing...");
@@ -43,7 +48,7 @@ public class ButtonPanel extends JPanel {
             t.start();
 
         });
-        JButton btnClose = new JButton("关闭");
+        btnClose = new JButton("关闭");
         btnClose.setPreferredSize(SizeConst.BUTTON_SIZE);
         btnClose.addActionListener(e -> parent.dispose());
 
@@ -66,7 +71,8 @@ public class ButtonPanel extends JPanel {
 
                 contentPanel.updateData(rst);
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(parent, e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
+                UIManager.put("OptionPane.okButtonText", ButtonPanel.this.bundle.getString("OK"));
+                JOptionPane.showMessageDialog(parent, e.getMessage(), ButtonPanel.this.bundle.getString("ERROR"), JOptionPane.ERROR_MESSAGE);
                 log.error(e.getMessage());
             } finally {
                 btnCalc.setEnabled(true);
@@ -74,5 +80,17 @@ public class ButtonPanel extends JPanel {
                 progressBar.setVisible(false);
             }
         }
+    }
+
+    public JButton getBtnCalc() {
+        return btnCalc;
+    }
+
+    public JButton getBtnClose() {
+        return btnClose;
+    }
+
+    public void setBundle(ResourceBundle bundle) {
+        this.bundle = bundle;
     }
 }

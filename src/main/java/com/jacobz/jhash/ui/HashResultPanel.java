@@ -15,10 +15,7 @@ public class HashResultPanel extends JPanel {
     private final JTextField textField;
     private final JCheckBox checkBox;
     private String value;
-    private boolean activated;
-
     public HashResultPanel(String labelStr, boolean activated, Set<String> processTypes) {
-        this.activated = activated;
         checkBox = new JCheckBox(labelStr);
         checkBox.setPreferredSize(new Dimension(LEFT_CONTROL_PREFERRED_WIDTH, CONTROL_PREFERRED_HEIGHT));
 
@@ -59,7 +56,6 @@ public class HashResultPanel extends JPanel {
     }
 
     public void setActivated(boolean status) {
-        this.activated = status;
     }
 
     public String getName() {

@@ -10,7 +10,6 @@ public class JhashApp {
         EventQueue.invokeLater(() -> {
             try {
                 MainFrame mf = new MainFrame();
-                SwingUtilities.updateComponentTreeUI(mf);
                 mf.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();

@@ -1,24 +1,31 @@
 package com.jacobz.jhash.ui;
 
-import com.jacobz.jhash.config.SizeConst;
-import lombok.extern.slf4j.Slf4j;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.io.File;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import java.awt.*;
-import java.io.File;
 
-@Slf4j
+import com.jacobz.jhash.config.SizeConst;
+
+import lombok.Getter;
+
+@Getter
 public class HeaderPanel extends JPanel {
+    JComboBox<String> hashTypes;
+    JPlaceHolderTextField textFile;
     public HeaderPanel(MainFrame parent) {
 
-        JComboBox<String> hashTypes = new JComboBox<>();
-        hashTypes.addItem("文件");
+        hashTypes = new JComboBox<>();
 //        hashTypes.addItem("文本");
         hashTypes.setPreferredSize(new Dimension(SizeConst.LEFT_CONTROL_PREFERRED_WIDTH - 5, SizeConst.CONTROL_PREFERRED_HEIGHT));
-        JPlaceHolderTextField textFile = new JPlaceHolderTextField();
+        textFile = new JPlaceHolderTextField();
         textFile.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -39,7 +46,7 @@ public class HeaderPanel extends JPanel {
                 parent.setFilePath(textFile.getText());
             }
         });
-        textFile.setPlaceHolder("选择文件");
+        
         JButton btnChooseFile = new JButton("...");
         btnChooseFile.addActionListener(e -> {
             JFileChooser jfc = new JFileChooser();
