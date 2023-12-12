@@ -3,7 +3,7 @@
 ## Requirements
 
 Maven 3.6.3 or above.  
-JDK 11 or above installed. JDK 8 might work.
+JDK 17 or above installed. JDK 8 might work.
 
 ## Build in IDE
 
@@ -18,4 +18,4 @@ mvn clean compile assembly:single
 
 ## Misc
 
-If you just want to run app without building, you can check out the jar file under binary folder
+If you just want to run app without building, you can check out the binary file [here](https://github.com/imJacobz/JHashCalculator/releases/download/publish/JFileHashCalculator-1.0.2.zip)
