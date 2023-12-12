@@ -2,7 +2,6 @@ package com.jacobz.jhash;
 
 import com.jacobz.jhash.ui.MainFrame;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class JhashApp {

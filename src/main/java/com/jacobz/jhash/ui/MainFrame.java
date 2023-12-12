@@ -2,8 +2,6 @@ package com.jacobz.jhash.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Enumeration;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -43,7 +41,7 @@ public class MainFrame extends JFrame {
         setSize(800, 400);
         setLocationRelativeTo(null);
         try {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel"); 
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
             SwingUtilities.updateComponentTreeUI(this);
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -114,7 +112,7 @@ public class MainFrame extends JFrame {
         // south
         panelSouth = new ButtonPanel(this, panelMain, rBundle);
         // south end
-       
+
         JPanel contentPane = new JPanel(new BorderLayout());
         contentPane.setBorder(new EmptyBorder(10, 10, 10, 15));
         contentPane.add(panelNorth, BorderLayout.NORTH);
@@ -128,7 +126,7 @@ public class MainFrame extends JFrame {
         JComboBox<String> comboBox = panelNorth.getHashTypes();
         comboBox.removeAllItems();
         comboBox.addItem(rBundle.getString("FILE"));
-        JButton btnCalc=panelSouth.getBtnCalc();
+        JButton btnCalc = panelSouth.getBtnCalc();
         btnCalc.setText(rBundle.getString("CALC"));
 
         panelSouth.setBundle(rBundle);

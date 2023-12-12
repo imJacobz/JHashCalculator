@@ -11,7 +11,8 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>./logs/jhash_app_%d.%i.log</fileNamePattern>
             <maxHistory>30</maxHistory>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
@@ -23,12 +24,12 @@
         </encoder>
     </appender>
     <root level="ERROR">
-        <appender-ref ref="jhashlog"/>
+        <appender-ref ref="jhashlog" />
     </root>
-    <logger name="com.jacobz.jhash" level="info">
-        <appender-ref ref="jhashlog"/>
+    <logger name="com.jacobz.jhash" level="ERROR">
+        <appender-ref ref="jhashlog" />
     </logger>
-    <logger name="com.jacobz.jhash" additivity="false" level="INFO">
-        <appender-ref ref="STDOUT"/>
+    <logger name="com.jacobz.jhash" additivity="false" level="ERROR">
+        <appender-ref ref="STDOUT" />
     </logger>
 </configuration>
