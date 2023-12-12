@@ -7,7 +7,7 @@ JDK 11 or above installed. JDK 8 might work.
 
 ## Build in IDE
 
-git clone <https://github.com/jheng/JHashCalculator.git> or download the zip file and unzip  
+git clone https://github.com/imJacobz/JHashCalculator.git or download the zip file and unzip  
 import into your java IDE via "import as maven project"
 
 ## Run
