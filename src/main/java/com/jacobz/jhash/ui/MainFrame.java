@@ -1,20 +1,15 @@
 package com.jacobz.jhash.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Font;
-import java.util.Enumeration;
-import java.util.Locale;
-import java.util.ResourceBundle;
-
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.FontUIResource;
-
 import com.jacobz.jhash.util.ResourceManager;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 @Slf4j
 @Getter
@@ -45,7 +40,7 @@ public class MainFrame extends JFrame {
             SwingUtilities.updateComponentTreeUI(this);
         } catch (Exception e) {
             log.error(e.getMessage());
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         this.repaint();
         this.pack();
