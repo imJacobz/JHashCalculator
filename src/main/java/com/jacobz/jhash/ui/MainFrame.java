@@ -132,15 +132,4 @@ public class MainFrame extends JFrame {
         panelSouth.setBundle(rBundle);
         panelSouth.getBtnClose().setText(rBundle.getString("CLOSE"));
     }
-
-    private void initGlobalFont(Font font) {
-        FontUIResource fontRes = new FontUIResource(font);
-        for (Enumeration<Object> keys = UIManager.getDefaults().keys(); keys.hasMoreElements();) {
-            Object key = keys.nextElement();
-            Object value = UIManager.get(key);
-            if (value instanceof FontUIResource) {
-                UIManager.put(key, fontRes);
-            }
-        }
-    }
 }
